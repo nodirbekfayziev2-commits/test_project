@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UN — sekin fermentatsiya, tezkor tong</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F4EEE1;
+    --crust:#2E2116;
+    --wheat:#C89B3C;
+    --rye:#5C5240;
+    --ash:#8C887C;
+    --card:#FBF8F0;
+    --line:rgba(46,33,22,0.14);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Work Sans', sans-serif;
+    background:var(--cream);
+    color:var(--crust);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{font-family:'Fraunces', serif; font-weight:500; line-height:1.15;}
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.75rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--wheat);
+  }
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:1120px; margin:0 auto; padding:0 32px;}
+  section{padding:96px 0;}
+
+  /* ---------- nav ---------- */
+  nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(244,238,225,0.9);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{display:flex; align-items:center; justify-content:space-between; height:76px; padding-top:0; padding-bottom:0;}
+  .logo{font-family:'Fraunces', serif; font-size:1.5rem; font-weight:600; letter-spacing:0.02em;}
+  .navlinks{display:flex; gap:32px; font-size:0.9rem;}
+  .navlinks a{opacity:0.75; transition:opacity 0.2s;}
+  .navlinks a:hover{opacity:1;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:13px 26px; border-radius:2px;
+    font-size:0.9rem; font-weight:500;
+    border:1px solid var(--crust);
+    cursor:pointer; transition:all 0.2s;
+  }
+  .btn-primary{background:var(--crust); color:var(--cream);}
+  .btn-primary:hover{background:var(--wheat); border-color:var(--wheat); color:var(--crust);}
+  .btn-ghost{background:transparent; color:var(--crust);}
+  .btn-ghost:hover{background:var(--crust); color:var(--cream);}
+
+  /* ---------- hero ---------- */
+  .hero{padding:88px 0 64px;}
+  .hero .wrap{display:grid; grid-template-columns:1.1fr 0.9fr; gap:64px; align-items:center;}
+  .hero h1{font-size:3.4rem; letter-spacing:-0.01em; margin:18px 0 24px;}
+  .hero p.lede{font-size:1.15rem; color:var(--rye); max-width:460px; margin-bottom:36px;}
+  .hero .ctas{display:flex; gap:16px; flex-wrap:wrap;}
+
+  /* signature: proofing ring */
+  .proof{
+    position:relative; width:100%; aspect-ratio:1/1; max-width:380px; margin:0 auto;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .proof svg{width:100%; height:100%; transform:rotate(-90deg);}
+  .proof circle{fill:none; stroke-width:2;}
+  .proof .track{stroke:var(--line);}
+  .proof .fill{
+    stroke:var(--wheat);
+    stroke-linecap:round;
+    stroke-dasharray:754;
+    stroke-dashoffset:754;
+    animation:proofing 3.2s cubic-bezier(0.2,0.7,0.3,1) 0.3s forwards;
+  }
+  @keyframes proofing{ to{ stroke-dashoffset:60; } }
+  .proof-label{position:absolute; text-align:center;}
+  .proof-label .num{display:block; font-family:'Fraunces', serif; font-size:3.2rem; font-weight:500;}
+  .proof-label .unit{font-family:'JetBrains Mono', monospace; font-size:0.8rem; color:var(--rye); letter-spacing:0.08em;}
+
+  /* ---------- why us ---------- */
+  .section-head{max-width:560px; margin-bottom:56px;}
+  .section-head h2{font-size:2.2rem; margin-top:12px;}
+  .why-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
+  .why-card{background:var(--cream); padding:32px 26px;}
+  .why-card .ico{width:34px; height:34px; margin-bottom:20px; color:var(--wheat);}
+  .why-card h3{font-size:1.05rem; margin-bottom:10px;}
+  .why-card p{font-size:0.92rem; color:var(--rye);}
+
+  /* ---------- menu ---------- */
+  .menu-bg{background:var(--crust); color:var(--cream);}
+  .menu-bg .eyebrow{color:var(--wheat);}
+  .menu-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-top:48px;}
+  .menu-card{
+    background:rgba(244,238,225,0.04);
+    border:1px solid rgba(244,238,225,0.14);
+    padding:0 0 26px;
+    overflow:hidden;
+  }
+  .menu-art{height:200px; display:flex; align-items:center; justify-content:center; border-bottom:1px solid rgba(244,238,225,0.14);}
+  .menu-art svg{width:96px; height:96px; color:var(--wheat);}
+  .menu-body{padding:24px 26px 0;}
+  .menu-body .tag{font-family:'JetBrains Mono', monospace; font-size:0.7rem; color:var(--wheat); letter-spacing:0.08em;}
+  .menu-body h3{font-size:1.2rem; margin:8px 0 8px; color:var(--cream);}
+  .menu-body p{font-size:0.9rem; color:#C9C2B2;}
+
+  /* ---------- offer ---------- */
+  .offer{
+    background:var(--card);
+    border:1px solid var(--line);
+    padding:52px 56px;
+    display:grid; grid-template-columns:auto 1fr auto; gap:40px; align-items:center;
+  }
+  .offer .time{
+    font-family:'Fraunces', serif; font-size:2.6rem; white-space:nowrap; color:var(--wheat);
+  }
+  .offer h3{font-size:1.5rem; margin-bottom:10px;}
+  .offer p{color:var(--rye); font-size:0.95rem;}
+
+  /* ---------- testimonials ---------- */
+  .test-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:32px; margin-top:48px;}
+  .test-card blockquote{font-family:'Fraunces', serif; font-size:1.15rem; font-style:italic; line-height:1.5; margin-bottom:20px;}
+  .test-card .who{font-size:0.85rem; color:var(--rye); font-weight:500;}
+
+  /* ---------- contact/booking ---------- */
+  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:64px; margin-top:48px;}
+  .info-row{display:flex; gap:16px; padding:18px 0; border-top:1px solid var(--line);}
+  .info-row:last-child{border-bottom:1px solid var(--line);}
+  .info-row .k{font-family:'JetBrains Mono', monospace; font-size:0.75rem; color:var(--rye); width:110px; flex-shrink:0; padding-top:2px;}
+  .info-row .v{font-size:0.98rem;}
+  .map-link{display:inline-flex; align-items:center; gap:8px; margin-top:20px; font-size:0.9rem; border-bottom:1px solid var(--crust); padding-bottom:2px;}
+
+  form{display:flex; flex-direction:column; gap:14px;}
+  form input, form select{
+    font-family:'Work Sans', sans-serif; font-size:0.95rem;
+    padding:14px 16px; background:var(--card);
+    border:1px solid var(--line); border-radius:2px; color:var(--crust);
+  }
+  form input:focus, form select:focus{outline:none; border-color:var(--wheat);}
+  .row2{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  .form-note{font-size:0.82rem; color:var(--ash); margin-top:4px;}
+
+  /* ---------- footer ---------- */
+  footer{border-top:1px solid var(--line); padding:36px 0;}
+  footer .wrap{display:flex; justify-content:space-between; align-items:center; font-size:0.85rem; color:var(--rye);}
+
+  /* ---------- sticky mobile cta ---------- */
+  .sticky-cta{display:none; position:fixed; bottom:0; left:0; right:0; z-index:60; padding:14px 20px; background:var(--crust);}
+  .sticky-cta a{display:block; text-align:center; color:var(--cream); font-weight:500; font-size:0.95rem; padding:12px; border:1px solid var(--wheat);}
+
+  @media (max-width:900px){
+    .hero .wrap{grid-template-columns:1fr; gap:40px;}
+    .hero h1{font-size:2.4rem;}
+    .why-grid{grid-template-columns:repeat(2,1fr);}
+    .menu-grid, .test-grid{grid-template-columns:1fr;}
+    .contact-grid{grid-template-columns:1fr; gap:40px;}
+    .offer{grid-template-columns:1fr; text-align:left; gap:16px; padding:36px 28px;}
+    .navlinks{display:none;}
+    section{padding:64px 0;}
+    .sticky-cta{display:block;}
+    body{padding-bottom:70px;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="logo">UN</div>
+    <div class="navlinks">
+      <a href="#nega-biz">Nega biz</a>
+      <a href="#menyu">Menyu</a>
+      <a href="#fikrlar">Fikrlar</a>
+      <a href="#aloqa">Aloqa</a>
+    </div>
+    <a href="#aloqa" class="btn btn-primary">Joy band qilish</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Un — pekarna &amp; qahvaxona, Toshkent</span>
+      <h1>Har bir bo'lak —<br>sabr mevasi.</h1>
+      <p class="lede">Xamirturushni 18 soat sekin fermentatsiya qilamiz, donni har kuni tongda tortamiz. Natija — haqiqiy javdar nafasi va sokin burchak, ishlash yoki nafas olish uchun.</p>
+      <div class="ctas">
+        <a href="#menyu" class="btn btn-primary">Menyuni ko'rish</a>
+        <a href="#aloqa" class="btn btn-ghost">Joy band qilish</a>
+      </div>
+    </div>
+    <div class="proof">
+      <svg viewBox="0 0 260 260">
+        <circle class="track" cx="130" cy="130" r="120"/>
+        <circle class="fill" cx="130" cy="130" r="120"/>
+      </svg>
+      <div class="proof-label">
+        <span class="num">18</span>
+        <span class="unit">soatlik fermentatsiya</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="nega-biz">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Nega aynan biz</span>
+      <h2>Shoshilmasdan, lekin har kuni tayyor.</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3c-3 3-5 6-5 9a5 5 0 0010 0c0-3-2-6-5-9z"/></svg>
+        <h3>18 soatlik fermentatsiya</h3>
+        <p>Xamir sun'iy tezlashtirilmaydi — tabiiy hovur va chuqur ta'm shundan.</p>
+      </div>
+      <div class="why-card">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 3v6M12 3v6M18 3v6M4 10h16l-1.5 10a2 2 0 01-2 2h-9a2 2 0 01-2-2L4 10z"/></svg>
+        <h3>Har kuni soat 6:00 da yangi</h3>
+        <p>Kechqurun qolgan mahsulot ertasiga sotilmaydi — faqat o'sha kunning nafasi.</p>
+      </div>
+      <div class="why-card">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="4" y="7" width="16" height="12" rx="1"/><path d="M9 7V5a3 3 0 016 0v2"/></svg>
+        <h3>Ishlash uchun sokin burchak</h3>
+        <p>Barqaror Wi-Fi, har stolda rozetka, ovoz balandligi past — telefon suhbatidan xoli.</p>
+      </div>
+      <div class="why-card">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12l6 6L20 6"/></svg>
+        <h3>Mahalliy fermer donlari</h3>
+        <p>Un Zomin tumani fermerlaridan, sut esa Parkent xo'jaliklaridan yetkaziladi.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="menyu" class="menu-bg">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Eng sevimlilar</span>
+      <h2 style="color:var(--cream);">Uch narsa — qaytib kelish sababi.</h2>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-card">
+        <div class="menu-art">
+          <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 55c10-25 25-35 30-35s20 10 30 35c-10-5-20 5-30 0-10 5-20-5-30 0z"/><path d="M30 55c5 8 12 12 20 12s15-4 20-12"/></svg>
+        </div>
+        <div class="menu-body">
+          <span class="tag">javdar / 24 soat xamir</span>
+          <h3>Rye kruassan</h3>
+          <p>Javdar unidan, sariyog'i ko'p qatlamli, ustida dengiz tuzi.</p>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-art">
+          <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2"><path d="M30 40h30v25a15 15 0 01-30 0V40z"/><path d="M60 45h8a8 8 0 010 16h-8"/><path d="M35 30c2-4 6-4 8 0"/><path d="M48 30c2-4 6-4 8 0"/></svg>
+        </div>
+        <div class="menu-body">
+          <span class="tag">mahalliy qovurilgan don</span>
+          <h3>Flat white</h3>
+          <p>Yumshoq, yong'oqsimon ta'm — Zomin fermalaridan olingan don asosida.</p>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-art">
+          <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2"><rect x="18" y="35" width="64" height="30" rx="15"/><circle cx="35" cy="50" r="2.5" fill="currentColor" stroke="none"/><circle cx="50" cy="45" r="2.5" fill="currentColor" stroke="none"/><circle cx="65" cy="52" r="2.5" fill="currentColor" stroke="none"/></svg>
+        </div>
+        <div class="menu-body">
+          <span class="tag">zaytun yog'i / dengiz tuzi</span>
+          <h3>Zaytun fokachcha</h3>
+          <p>Yopishqoq xamir, uzoq fermentatsiya, ustida yangi rozmarin.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="offer">
+      <div class="time">7:00–10:00</div>
+      <div>
+        <h3>Ertalabki juftlik</h3>
+        <p>Shu oraliqda kelgan mijozlarga istalgan non + qahva birgalikda 20% arzon. Faqat filialda, saqlab qo'yish shart emas.</p>
+      </div>
+      <a href="#aloqa" class="btn btn-primary">Menga yoqadi</a>
+    </div>
+  </div>
+</section>
+
+<section id="fikrlar">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Mijozlar fikri</span>
+      <h2>O'zlari aytganidek.</h2>
+    </div>
+    <div class="test-grid">
+      <div class="test-card">
+        <blockquote>"Rye kruassani boshqa hech qayerda topmadim — javdar ta'mi haqiqiy, shirin emas."</blockquote>
+        <div class="who">Malika, dizayner</div>
+      </div>
+      <div class="test-card">
+        <blockquote>"Ertalab kelib ikki soat ishlayman — hech kim bezovta qilmaydi, Wi-Fi barqaror."</blockquote>
+        <div class="who">Jahongir, frilanser</div>
+      </div>
+      <div class="test-card">
+        <blockquote>"Non doim yangi, hech qachon kechagi ta'mni his qilmadim."</blockquote>
+        <div class="who">Nodira, o'qituvchi</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="aloqa">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Aloqa va joy band qilish</span>
+      <h2>Sizni kutamiz.</h2>
+    </div>
+    <div class="contact-grid">
+      <div>
+        <div class="info-row"><div class="k">manzil</div><div class="v">Toshkent, Yunusobod tumani, Amir Temur ko'chasi, 45</div></div>
+        <div class="info-row"><div class="k">ish vaqti</div><div class="v">Har kuni, 07:00 – 22:00</div></div>
+        <div class="info-row"><div class="k">telefon</div><div class="v">+998 90 123 45 67</div></div>
+        <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Toshkent+Amir+Temur+kochasi+45" target="_blank" rel="noopener">
+          Xaritada ko'rish →
+        </a>
+      </div>
+      <form id="bookingForm">
+        <input type="text" placeholder="Ismingiz" required>
+        <div class="row2">
+          <input type="tel" placeholder="Telefon raqam" required>
+          <input type="number" placeholder="Mehmonlar soni" min="1" max="20" required>
+        </div>
+        <div class="row2">
+          <input type="date" required>
+          <input type="time" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Joy band qilish</button>
+        <span class="form-note" id="formNote">So'rovingiz 10 daqiqada telefon orqali tasdiqlanadi.</span>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>UN — pekarna &amp; qahvaxona</div>
+    <div>© 2026 UN. Barcha huquqlar himoyalangan.</div>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <a href="#aloqa">Joy band qilish</a>
+</div>
+
+<script>
+  document.getElementById('bookingForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const note = document.getElementById('formNote');
+    note.textContent = 'Rahmat! Tez orada siz bilan bog\'lanamiz.';
+    note.style.color = 'var(--wheat)';
+    this.reset();
+  });
+</script>
+
+</body>
+</html>
